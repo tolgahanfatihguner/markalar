@@ -3,140 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ürün Slider Tasarımı</title>
+    <title>Gelişmiş Ürün Slider Tasarımı</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: #f7faff;
+            background: #eef2f7;
+            padding: 20px;
             color: #333;
-            padding: 20px;
-            text-align: center;
-            margin: 0;
         }
 
-        .slider-container {
-            position: relative;
-            width: 800px;
+        .container {
+            width: 900px;
             margin: auto;
-            overflow: hidden;
-            background: #fff;
+            position: relative;
+            background: #ffffff;
             border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            overflow: hidden;
         }
 
-        .slider {
+        .product-icons {
             display: flex;
-            transition: transform 0.5s ease;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
         }
 
-        .slide {
-            flex: 0 0 800px;
+        .product-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-icon:hover, .active-icon {
+            transform: scale(1.2);
+            border: 2px solid #0984e3;
+        }
+
+        .product-detail {
             display: flex;
             align-items: center;
-            justify-content: space-around;
+            justify-content: space-between;
         }
 
-        .slide img {
-            max-width: 150px;
+        .product-detail img {
+            width: 250px;
             border-radius: 15px;
+            transition: all 0.5s ease;
         }
 
-        .product-info {
-            text-align: left;
+        .info {
             max-width: 400px;
+            text-align: left;
+        }
+
+        .info h2 {
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: #0984e3;
+        }
+
+        .info p {
+            margin-bottom: 20px;
         }
 
         .buttons {
-            margin-top: 15px;
+            display: flex;
+            gap: 10px;
         }
 
         .btn {
             padding: 10px 20px;
-            border-radius: 20px;
-            border: none;
-            color: white;
             background-color: #0984e3;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
         }
 
         .btn:hover {
             background-color: #74b9ff;
         }
 
-        .nav-btn {
+        .user-info {
             position: absolute;
+            right: 20px;
             top: 50%;
             transform: translateY(-50%);
-            background: #0984e3;
-            border: none;
-            color: white;
-            padding: 10px;
-            cursor: pointer;
+            background: #ffeaa7;
+            padding: 15px;
             border-radius: 50%;
-            transition: background 0.3s ease;
+            width: 130px;
+            height: 130px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
-        .nav-btn:hover {
-            background: #74b9ff;
-        }
-
-        .nav-left {
-            left: 10px;
-        }
-
-        .nav-right {
-            right: 10px;
+        .user-info:hover {
+            background: #fab1a0;
+            transform: translateY(-50%) scale(1.1);
         }
     </style>
 </head>
 <body>
 
-<div class="slider-container">
-    <button class="nav-btn nav-left">‹</button>
-    <div class="slider">
-        <div class="slide">
-            <img src="https://via.placeholder.com/150" alt="Magnesio">
-            <div class="product-info">
-                <h3>Magnesio Yenilendi!</h3>
-                <p>Yüksek emilimli magnezyum desteği, kas ve sinir sistemi sağlığı için.</p>
-                <div class="buttons">
-                    <button class="btn">İncele</button>
-                    <button class="btn">Video İzle</button>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://via.placeholder.com/150" alt="Regista">
-            <div class="product-info">
-                <h3>Regista ile Sindirim Desteği!</h3>
-                <p>Sindirim sistemini destekleyen özel formül.</p>
-                <div class="buttons">
-                    <button class="btn">İncele</button>
-                    <button class="btn">Video İzle</button>
-                </div>
-            </div>
-        </div>
-        <!-- İhtiyacınıza göre daha fazla slide ekleyebilirsiniz -->
+<div class="container">
+    <div class="product-icons">
+        <img class="product-icon active-icon" src="https://via.placeholder.com/70" alt="Magnesio">
+        <img class="product-icon" src="https://via.placeholder.com/70" alt="Regista">
+        <img class="product-icon" src="https://via.placeholder.com/70" alt="Cocomega">
+        <img class="product-icon" src="https://via.placeholder.com/70" alt="Digestaz">
+        <img class="product-icon" src="https://via.placeholder.com/70" alt="Provit">
     </div>
-    <button class="nav-btn nav-right">›</button>
+
+    <div class="product-detail">
+        <img id="productImage" src="https://via.placeholder.com/250" alt="Ürün Görseli">
+        <div class="info">
+            <h2 id="productTitle">Magnesio Yenilendi!</h2>
+            <p id="productDesc">Yüksek emilimli magnezyum desteği, kas ve sinir sağlığı için özel olarak geliştirildi.</p>
+            <div class="buttons">
+                <button class="btn">İncele</button>
+                <button class="btn">Video İzle</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="user-info">
+        Kimler<br>Kullanabilir?
+    </div>
 </div>
 
 <script>
-    const slider = document.querySelector('.slider');
-    const slides = document.querySelectorAll('.slide');
-    let currentIndex = 0;
+    const products = [
+        {title: 'Magnesio Yenilendi!', desc: 'Yüksek emilimli magnezyum desteği, kas ve sinir sağlığı için özel olarak geliştirildi.', img: 'https://via.placeholder.com/250'},
+        {title: 'Regista Sindirim Desteği!', desc: 'Sindirim sistemini destekleyen özel formül.', img: 'https://via.placeholder.com/250'},
+        {title: 'Cocomega Omega-3', desc: 'Kalp, beyin ve göz sağlığı için yüksek kaliteli Omega-3.', img: 'https://via.placeholder.com/250'},
+        {title: 'Digestaz Enzim Kompleksi', desc: 'Sindirim gücünüzü artıran özel enzim karışımı.', img: 'https://via.placeholder.com/250'},
+        {title: 'Provit Vitamin Desteği', desc: 'Günlük bağışıklık ve enerji desteği sağlayan vitamin.', img: 'https://via.placeholder.com/250'}
+    ];
 
-    document.querySelector('.nav-left').addEventListener('click', () => {
-        currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
-        slider.style.transform = `translateX(-${800 * currentIndex}px)`;
-    });
-
-    document.querySelector('.nav-right').addEventListener('click', () => {
-        currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
-        slider.style.transform = `translateX(-${800 * currentIndex}px)`;
+    const icons = document.querySelectorAll('.product-icon');
+    icons.forEach((icon, idx) => {
+        icon.addEventListener('click', () => {
+            document.querySelector('.active-icon').classList.remove('active-icon');
+            icon.classList.add('active-icon');
+            document.getElementById('productTitle').textContent = products[idx].title;
+            document.getElementById('productDesc').textContent = products[idx].desc;
+            document.getElementById('productImage').src = products[idx].img;
+        });
     });
 </script>
 
