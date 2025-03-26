@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Takviye Edici Ürünler</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Ürün Slider Tasarımı</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,129 +15,128 @@
             margin: 0;
         }
 
-        .icons-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: linear-gradient(145deg, #6c5ce7, #a29bfe);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .icon:hover, .icon.active {
-            transform: scale(1.1);
-        }
-
-        .product-card {
-            max-width: 800px;
-            margin: 0 auto;
+        .slider-container {
+            position: relative;
+            width: 800px;
+            margin: auto;
+            overflow: hidden;
             background: #fff;
             border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 20px;
         }
 
-        .product-title {
-            font-size: 24px;
-            margin-bottom: 15px;
-            font-weight: 600;
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            flex: 0 0 800px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .slide img {
+            max-width: 150px;
+            border-radius: 15px;
         }
 
         .product-info {
-            font-size: 16px;
-            margin-bottom: 20px;
+            text-align: left;
+            max-width: 400px;
         }
 
         .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
+            margin-top: 15px;
         }
 
         .btn {
-            padding: 12px 25px;
-            border-radius: 30px;
+            padding: 10px 20px;
+            border-radius: 20px;
             border: none;
             color: white;
             background-color: #0984e3;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            font-size: 14px;
         }
 
         .btn:hover {
             background-color: #74b9ff;
         }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #0984e3;
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: #74b9ff;
+        }
+
+        .nav-left {
+            left: 10px;
+        }
+
+        .nav-right {
+            right: 10px;
+        }
     </style>
 </head>
 <body>
 
-<div class="icons-container">
-    <div class="icon active" data-title="Magnesio">MAG</div>
-    <div class="icon" data-title="Regista">REG</div>
-    <div class="icon" data-title="Cocomega">COCO</div>
-    <div class="icon" data-title="Digestaz">DIG</div>
-    <div class="icon" data-title="Provit">PRO</div>
-</div>
-
-<div class="product-card">
-    <div class="product-title">Magnesio Yenilendi!</div>
-    <div class="product-info">Vücudunuzun magnezyum ihtiyacını karşılayan yüksek emilimli bir formül ile kasları ve sinirleri destekler, kemik sağlığını korur ve enerji üretiminde rol oynar.</div>
-    <div class="buttons">
-        <button class="btn">İncele</button>
-        <button class="btn">Video İzle</button>
+<div class="slider-container">
+    <button class="nav-btn nav-left">‹</button>
+    <div class="slider">
+        <div class="slide">
+            <img src="https://via.placeholder.com/150" alt="Magnesio">
+            <div class="product-info">
+                <h3>Magnesio Yenilendi!</h3>
+                <p>Yüksek emilimli magnezyum desteği, kas ve sinir sistemi sağlığı için.</p>
+                <div class="buttons">
+                    <button class="btn">İncele</button>
+                    <button class="btn">Video İzle</button>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="https://via.placeholder.com/150" alt="Regista">
+            <div class="product-info">
+                <h3>Regista ile Sindirim Desteği!</h3>
+                <p>Sindirim sistemini destekleyen özel formül.</p>
+                <div class="buttons">
+                    <button class="btn">İncele</button>
+                    <button class="btn">Video İzle</button>
+                </div>
+            </div>
+        </div>
+        <!-- İhtiyacınıza göre daha fazla slide ekleyebilirsiniz -->
     </div>
+    <button class="nav-btn nav-right">›</button>
 </div>
 
 <script>
-    const products = {
-        Magnesio: {
-            title: "Magnesio Yenilendi!",
-            info: "Vücudunuzun magnezyum ihtiyacını karşılayan yüksek emilimli bir formül ile kasları ve sinirleri destekler, kemik sağlığını korur ve enerji üretiminde rol oynar."
-        },
-        Regista: {
-            title: "Regista ile Sindirim Desteği!",
-            info: "Sindirim sistemini rahatlatan, bağırsakları destekleyen özel bir formül."
-        },
-        Cocomega: {
-            title: "Cocomega ile Omega-3 Takviyesi!",
-            info: "Kalp, beyin ve göz sağlığı için yüksek kaliteli Omega-3 desteği."
-        },
-        Digestaz: {
-            title: "Digestaz ile Sindirim Gücü!",
-            info: "Enzim kompleksi ile besinlerin daha iyi sindirilmesine yardımcı olur."
-        },
-        Provit: {
-            title: "Provit Bağışıklığınızı Güçlendirin!",
-            info: "Bağışıklık sisteminizi güçlendiren ve enerji seviyenizi yükselten günlük vitamin desteği."
-        }
-    };
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+    let currentIndex = 0;
 
-    const icons = document.querySelectorAll('.icon');
-    const productTitle = document.querySelector('.product-title');
-    const productInfo = document.querySelector('.product-info');
+    document.querySelector('.nav-left').addEventListener('click', () => {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+        slider.style.transform = `translateX(-${800 * currentIndex}px)`;
+    });
 
-    icons.forEach(icon => {
-        icon.addEventListener('click', () => {
-            document.querySelector('.icon.active').classList.remove('active');
-            icon.classList.add('active');
-
-            const product = products[icon.getAttribute('data-title')];
-            productTitle.textContent = product.title;
-            productInfo.textContent = product.info;
-        });
+    document.querySelector('.nav-right').addEventListener('click', () => {
+        currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+        slider.style.transform = `translateX(-${800 * currentIndex}px)`;
     });
 </script>
 
