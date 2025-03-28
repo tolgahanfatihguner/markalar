@@ -24,11 +24,36 @@
             overflow: hidden;
         }
 
-        .product-icons {
+        .product-icons-wrapper {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            align-items: center;
+            gap: 40px;
             margin-bottom: 20px;
+            position: relative;
+        }
+
+        .arrow-btn {
+            background: #0984e3;
+            border: none;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .arrow-btn:hover {
+            background: #74b9ff;
+        }
+
+        .product-icons {
+            display: flex;
+            gap: 40px;
         }
 
         .product-icon {
@@ -120,12 +145,16 @@
 <body>
 
 <div class="container">
-    <div class="product-icons">
-        <img class="product-icon active-icon" src="https://via.placeholder.com/70" alt="Magnesio">
-        <img class="product-icon" src="https://via.placeholder.com/70" alt="Regista">
-        <img class="product-icon" src="https://via.placeholder.com/70" alt="Cocomega">
-        <img class="product-icon" src="https://via.placeholder.com/70" alt="Digestaz">
-        <img class="product-icon" src="https://via.placeholder.com/70" alt="Provit">
+    <div class="product-icons-wrapper">
+        <button class="arrow-btn" id="prevBtn">‹</button>
+        <div class="product-icons">
+            <img class="product-icon active-icon" src="https://via.placeholder.com/70" alt="Magnesio">
+            <img class="product-icon" src="https://via.placeholder.com/70" alt="Regista">
+            <img class="product-icon" src="https://via.placeholder.com/70" alt="Cocomega">
+            <img class="product-icon" src="https://via.placeholder.com/70" alt="Digestaz">
+            <img class="product-icon" src="https://via.placeholder.com/70" alt="Provit">
+        </div>
+        <button class="arrow-btn" id="nextBtn">›</button>
     </div>
 
     <div class="product-detail">
@@ -155,14 +184,31 @@
     ];
 
     const icons = document.querySelectorAll('.product-icon');
+    let currentIndex = 0;
+
+    function updateProduct(index) {
+        document.querySelector('.active-icon').classList.remove('active-icon');
+        icons[index].classList.add('active-icon');
+        document.getElementById('productTitle').textContent = products[index].title;
+        document.getElementById('productDesc').textContent = products[index].desc;
+        document.getElementById('productImage').src = products[index].img;
+    }
+
     icons.forEach((icon, idx) => {
         icon.addEventListener('click', () => {
-            document.querySelector('.active-icon').classList.remove('active-icon');
-            icon.classList.add('active-icon');
-            document.getElementById('productTitle').textContent = products[idx].title;
-            document.getElementById('productDesc').textContent = products[idx].desc;
-            document.getElementById('productImage').src = products[idx].img;
+            currentIndex = idx;
+            updateProduct(currentIndex);
         });
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : products.length - 1;
+        updateProduct(currentIndex);
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+        currentIndex = (currentIndex < products.length - 1) ? currentIndex + 1 : 0;
+        updateProduct(currentIndex);
     });
 </script>
 
