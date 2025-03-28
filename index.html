@@ -60,13 +60,13 @@
 
         .icon-container {
             position: relative;
-            width: 92px;
-            height: 92px;
+            width: 102px;
+            height: 102px;
         }
 
         .product-icon {
-            width: 92px;
-            height: 92px;
+            width: 102px;
+            height: 102px;
             border-radius: 50%;
             overflow: hidden;
             cursor: pointer;
@@ -74,6 +74,24 @@
             transition: transform 0.3s;
             position: relative;
             z-index: 1;
+            border: 3px solid transparent;
+        }
+
+        /* Çerçeve renkleri */
+        .icon-container:nth-child(1) .product-icon {
+            border-color: rgba(128, 0, 128, 0.8);
+        }
+        .icon-container:nth-child(2) .product-icon {
+            border-color: rgba(255, 165, 0, 0.8);
+        }
+        .icon-container:nth-child(3) .product-icon {
+            border-color: rgba(0, 0, 255, 0.8);
+        }
+        .icon-container:nth-child(4) .product-icon {
+            border-color: rgba(0, 128, 0, 0.8);
+        }
+        .icon-container:nth-child(5) .product-icon {
+            border-color: rgba(255, 223, 0, 0.8);
         }
 
         .icon-glow {
@@ -90,7 +108,7 @@
 
         .product-icon:hover, .active-icon {
             transform: scale(1.2);
-            border: 2px solid #0984e3;
+            border-width: 3px;
         }
 
         .product-detail {
