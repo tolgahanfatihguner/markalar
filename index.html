@@ -63,57 +63,42 @@
 
         .product-icons {
             display: flex;
-            gap: 60px;
+            gap: 60px; /* Daireler arası boşluk açıldı */
         }
 
         .icon-container {
             position: relative;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: #fff;
-            border: 3px solid transparent;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .icon-glow {
-            position: absolute;
-            width: 100px;
-            height: 20px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0) 20%, transparent 80%);
-            border-radius: 50%;
-            bottom: 5px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 0;
+            width: 102px;
+            height: 102px;
         }
 
         .product-icon {
-            width: 100px;
-            height: 100px;
+            width: 102px;
+            height: 102px;
             border-radius: 50%;
             overflow: hidden;
             cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             transition: transform 0.3s;
             position: relative;
             z-index: 1;
-            background-color: #fff;
+            border: 3px solid transparent;
         }
 
         .product-icon:hover, .active-icon {
-            transform: scale(1.1);
-            border: 3px solid #885096;
+            transform: scale(1.2);
+            border-width: 3px;
         }
 
         .product-detail {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-top: 40px;
+            margin-top: -40px; /* Başlangıç noktası yukarıdaki ikon dairesi ile hizalandı */
         }
 
         .product-detail img {
-            width: 375px;
+            width: 375px; /* %50 büyütüldü */
             border-radius: 15px;
             transition: all 0.5s ease;
         }
@@ -184,24 +169,24 @@
     <div class="product-icons-wrapper">
         <button class="arrow-btn" id="prevBtn">‹</button>
         <div class="product-icons">
-            <div class="icon-container" style="border-color: #885096;">
-                <div class="icon-glow" style="background: rgba(136, 80, 150, 0.4);"></div>
+            <div class="icon-container">
+                <div class="icon-glow"></div>
                 <img class="product-icon active-icon" src="https://raw.githubusercontent.com/tolgahanfatihguner/images/refs/heads/main/MAGNESI%E2%95%A0%C3%A7O.png" alt="Magnesio">
             </div>
-            <div class="icon-container" style="border-color: #da4c25;">
-                <div class="icon-glow" style="background: rgba(218, 76, 37, 0.4);"></div>
+            <div class="icon-container">
+                <div class="icon-glow"></div>
                 <img class="product-icon" src="https://raw.githubusercontent.com/tolgahanfatihguner/images/refs/heads/main/REGISTA.png" alt="Regista">
             </div>
-            <div class="icon-container" style="border-color: #1e6ba4;">
-                <div class="icon-glow" style="background: rgba(30, 107, 164, 0.4);"></div>
+            <div class="icon-container">
+                <div class="icon-glow"></div>
                 <img class="product-icon" src="https://raw.githubusercontent.com/tolgahanfatihguner/images/refs/heads/main/Cocomega%20Mockup%202.png" alt="Cocomega">
             </div>
-            <div class="icon-container" style="border-color: #40aea9;">
-                <div class="icon-glow" style="background: rgba(64, 174, 169, 0.4);"></div>
+            <div class="icon-container">
+                <div class="icon-glow"></div>
                 <img class="product-icon" src="https://raw.githubusercontent.com/tolgahanfatihguner/images/refs/heads/main/DIGESTAZ.png" alt="Digestaz">
             </div>
-            <div class="icon-container" style="border-color: #ebaa00;">
-                <div class="icon-glow" style="background: rgba(235, 170, 0, 0.4);"></div>
+            <div class="icon-container">
+                <div class="icon-glow"></div>
                 <img class="product-icon" src="https://raw.githubusercontent.com/tolgahanfatihguner/images/refs/heads/main/D3K2.png" alt="D3K2">
             </div>
         </div>
