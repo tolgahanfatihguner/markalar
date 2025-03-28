@@ -18,7 +18,7 @@
             height: 600px;
             margin: auto;
             position: relative;
-            background: #fde9e7;
+            background: #f2e4f4; /* Magnesio rengi ile başlatıldı */
             border-radius: 20px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             padding: 30px;
@@ -83,51 +83,6 @@
             position: relative;
             z-index: 1;
             border: 3px solid transparent;
-        }
-
-        /* Yeni Çerçeve ve Glow Renkleri */
-        .icon-container:nth-child(1) .product-icon {
-            border-color: #885096;
-        }
-        .icon-container:nth-child(2) .product-icon {
-            border-color: #da4c25;
-        }
-        .icon-container:nth-child(3) .product-icon {
-            border-color: #1e6ba4;
-        }
-        .icon-container:nth-child(4) .product-icon {
-            border-color: #40aea9;
-        }
-        .icon-container:nth-child(5) .product-icon {
-            border-color: #ebaa00;
-        }
-
-        .icon-container:nth-child(1) .icon-glow {
-            background: rgba(136, 80, 150, 0.6);
-        }
-        .icon-container:nth-child(2) .icon-glow {
-            background: rgba(218, 76, 37, 0.6);
-        }
-        .icon-container:nth-child(3) .icon-glow {
-            background: rgba(30, 107, 164, 0.6);
-        }
-        .icon-container:nth-child(4) .icon-glow {
-            background: rgba(64, 174, 169, 0.6);
-        }
-        .icon-container:nth-child(5) .icon-glow {
-            background: rgba(235, 170, 0, 0.6);
-        }
-
-        .icon-glow {
-            position: absolute;
-            width: 60%;
-            height: 25px;
-            border-radius: 50%;
-            bottom: 5px;
-            left: 50%;
-            transform: translateX(-50%);
-            filter: blur(10px);
-            z-index: 0;
         }
 
         .product-icon:hover, .active-icon {
@@ -238,7 +193,7 @@
     </div>
 
     <div class="product-detail">
-        <img id="productImage" src="https://via.placeholder.com/250" alt="Ürün Görseli">
+        <img id="productImage" src="https://raw.githubusercontent.com/tolgahanfatihguner/images/refs/heads/main/I%CC%87nfless%20Gu%CC%88ncel%20Bros%CC%A7u%CC%88r%20_Page_1.jpg" alt="Ürün Görseli">
         <div class="info">
             <h2 id="productTitle">Magnesio Yenilendi!</h2>
             <p id="productDesc">Yüksek emilimli magnezyum desteği, kas ve sinir sağlığı için özel olarak geliştirildi.</p>
@@ -256,11 +211,11 @@
 
 <script>
     const products = [
-        {title: 'Magnesio Yenilendi!', desc: 'Yüksek emilimli magnezyum desteği, kas ve sinir sağlığı için özel olarak geliştirildi.', img: 'https://via.placeholder.com/250', bgColor: '#f2e4f4'},
-        {title: 'Regista Sindirim Desteği!', desc: 'Sindirim sistemini destekleyen özel formül.', img: 'https://via.placeholder.com/250', bgColor: '#fbe7e1'},
-        {title: 'Cocomega Omega-3', desc: 'Kalp, beyin ve göz sağlığı için yüksek kaliteli Omega-3.', img: 'https://via.placeholder.com/250', bgColor: '#e3effb'},
-        {title: 'Digestaz Enzim Kompleksi', desc: 'Sindirim gücünüzü artıran özel enzim karışımı.', img: 'https://via.placeholder.com/250', bgColor: '#e1f7f4'},
-        {title: 'D3K2 Vitamin Desteği', desc: 'Günlük bağışıklık ve enerji desteği sağlayan vitamin.', img: 'https://via.placeholder.com/250', bgColor: '#fef4e1'}
+        {title: 'Magnesio Yenilendi!', desc: 'Yüksek emilimli magnezyum desteği, kas ve sinir sağlığı için özel olarak geliştirildi.', img: 'https://raw.githubusercontent.com/tolgahanfatihguner/images/refs/heads/main/I%CC%87nfless%20Gu%CC%88ncel%20Bros%CC%A7u%CC%88r%20_Page_1.jpg', bgColor: '#f2e4f4'},
+        {title: 'Regista Sindirim Desteği!', desc: 'Sindirim sistemini destekleyen özel formül.', img: 'https://raw.githubusercontent.com/tolgahanfatihguner/images/refs/heads/main/I%CC%87nfless%20Gu%CC%88ncel%20Bros%CC%A7u%CC%88r%20_Page_4.jpg', bgColor: '#fbe7e1'},
+        {title: 'Cocomega Omega-3', desc: 'Kalp, beyin ve göz sağlığı için yüksek kaliteli Omega-3.', img: 'https://raw.githubusercontent.com/tolgahanfatihguner/images/refs/heads/main/I%CC%87nfless%20Gu%CC%88ncel%20Bros%CC%A7u%CC%88r%20_Page_3.jpg', bgColor: '#e3effb'},
+        {title: 'Digestaz Enzim Kompleksi', desc: 'Sindirim gücünüzü artıran özel enzim karışımı.', img: 'https://raw.githubusercontent.com/tolgahanfatihguner/images/refs/heads/main/I%CC%87nfless%20Gu%CC%88ncel%20Bros%CC%A7u%CC%88r%20_Page_2.jpg', bgColor: '#e1f7f4'},
+        {title: 'D3K2 Vitamin Desteği', desc: 'Günlük bağışıklık ve enerji desteği sağlayan vitamin.', img: 'https://raw.githubusercontent.com/tolgahanfatihguner/images/refs/heads/main/I%CC%87nfless%20Gu%CC%88ncel%20Bros%CC%A7u%CC%88r%20_Page_6.jpg', bgColor: '#fef4e1'}
     ];
 
     const icons = document.querySelectorAll('.product-icon');
