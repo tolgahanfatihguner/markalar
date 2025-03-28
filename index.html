@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'Wix Madefor Display', sans-serif;
-            background: #fbe2df;
+            background: #fde9e7;
             padding: 20px;
             color: #333;
         }
@@ -192,7 +192,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container" id="productContainer">
     <div class="title">INFLESS ÜRÜN AİLESİ</div>
     <div class="product-icons-wrapper">
         <button class="arrow-btn" id="prevBtn">‹</button>
@@ -240,11 +240,11 @@
 
 <script>
     const products = [
-        {title: 'Magnesio Yenilendi!', desc: 'Yüksek emilimli magnezyum desteği, kas ve sinir sağlığı için özel olarak geliştirildi.', img: 'https://via.placeholder.com/250'},
-        {title: 'Regista Sindirim Desteği!', desc: 'Sindirim sistemini destekleyen özel formül.', img: 'https://via.placeholder.com/250'},
-        {title: 'Cocomega Omega-3', desc: 'Kalp, beyin ve göz sağlığı için yüksek kaliteli Omega-3.', img: 'https://via.placeholder.com/250'},
-        {title: 'Digestaz Enzim Kompleksi', desc: 'Sindirim gücünüzü artıran özel enzim karışımı.', img: 'https://via.placeholder.com/250'},
-        {title: 'D3K2 Vitamin Desteği', desc: 'Günlük bağışıklık ve enerji desteği sağlayan vitamin.', img: 'https://via.placeholder.com/250'}
+        {title: 'Magnesio Yenilendi!', desc: 'Yüksek emilimli magnezyum desteği, kas ve sinir sağlığı için özel olarak geliştirildi.', img: 'https://via.placeholder.com/250', bgColor: '#f4e1f4'},
+        {title: 'Regista Sindirim Desteği!', desc: 'Sindirim sistemini destekleyen özel formül.', img: 'https://via.placeholder.com/250', bgColor: '#fff5e1'},
+        {title: 'Cocomega Omega-3', desc: 'Kalp, beyin ve göz sağlığı için yüksek kaliteli Omega-3.', img: 'https://via.placeholder.com/250', bgColor: '#e1f0ff'},
+        {title: 'Digestaz Enzim Kompleksi', desc: 'Sindirim gücünüzü artıran özel enzim karışımı.', img: 'https://via.placeholder.com/250', bgColor: '#e1f8e1'},
+        {title: 'D3K2 Vitamin Desteği', desc: 'Günlük bağışıklık ve enerji desteği sağlayan vitamin.', img: 'https://via.placeholder.com/250', bgColor: '#fff9e1'}
     ];
 
     const icons = document.querySelectorAll('.product-icon');
@@ -256,6 +256,7 @@
         document.getElementById('productTitle').textContent = products[index].title;
         document.getElementById('productDesc').textContent = products[index].desc;
         document.getElementById('productImage').src = products[index].img;
+        document.getElementById('productContainer').style.backgroundColor = products[index].bgColor;
     }
 
     icons.forEach((icon, idx) => {
