@@ -6,10 +6,7 @@
   <title>INFLESS Ürün Ailesi</title>
   <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       font-family: 'Wix Madefor Display', sans-serif;
       background: #f7f7f7;
@@ -17,7 +14,6 @@
       padding: 20px;
       color: #333;
     }
-
     .slider-wrapper {
       max-width: 1100px;
       margin: auto;
@@ -26,7 +22,6 @@
       padding: 30px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
-
     .product-icons-wrapper {
       display: flex;
       justify-content: center;
@@ -34,7 +29,6 @@
       margin-bottom: 30px;
       flex-wrap: wrap;
     }
-
     .icon {
       width: 100px;
       height: 100px;
@@ -45,38 +39,19 @@
       cursor: pointer;
       transition: transform 0.3s, border-color 0.3s;
     }
-
     .icon img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     .icon.active {
       transform: scale(1.1);
-      border-color: #f4a261;
     }
-
-    .icon:nth-child(1) {
-      border-color: #f4a261; /* Turuncu - Cocomega */
-    }
-
-    .icon:nth-child(2) {
-      border-color: #3f81c7; /* Mavi - D3K2 */
-    }
-
-    .icon:nth-child(3) {
-      border-color: #4aa96c; /* Yeşil - Digestaz */
-    }
-
-    .icon:nth-child(4) {
-      border-color: #9c27b0; /* Mor - Magnesio */
-    }
-
-    .icon:nth-child(5) {
-      border-color: #f44336; /* Kırmızı - Regista */
-    }
-
+    .icon:nth-child(1) { border-color: #f4a261; }
+    .icon:nth-child(2) { border-color: #3f81c7; }
+    .icon:nth-child(3) { border-color: #4aa96c; }
+    .icon:nth-child(4) { border-color: #9c27b0; }
+    .icon:nth-child(5) { border-color: #f44336; }
     .product-main {
       display: flex;
       gap: 30px;
@@ -84,13 +59,11 @@
       justify-content: space-between;
       flex-wrap: wrap;
     }
-
     .product-image img {
       width: 280px;
       border-radius: 16px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-
     .product-info-card {
       background: #fcefd9;
       border-radius: 16px;
@@ -99,8 +72,7 @@
       text-align: center;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-
-    .product-info-card .question-icon {
+    .question-icon {
       background: #ffa502;
       color: white;
       font-size: 32px;
@@ -113,24 +85,20 @@
       justify-content: center;
       margin-bottom: 10px;
     }
-
     .product-description {
       margin-top: 30px;
     }
-
     .product-description h2 {
       color: #ff6f00;
       font-size: 22px;
       margin-bottom: 10px;
     }
-
     .buttons {
       margin-top: 20px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
-
     .btn {
       padding: 10px 20px;
       background: #ff6f00;
@@ -140,25 +108,17 @@
       cursor: pointer;
       font-weight: 600;
     }
-
     .btn.outline {
       background: transparent;
       color: #ff6f00;
       border: 2px solid #ff6f00;
     }
-
     @media (max-width: 768px) {
       .product-main {
         flex-direction: column;
         align-items: center;
       }
-
-      .product-info-card {
-        width: 100%;
-        max-width: 300px;
-      }
-
-      .product-image img {
+      .product-info-card, .product-image img {
         width: 100%;
         max-width: 300px;
       }
@@ -166,10 +126,88 @@
   </style>
 </head>
 <body>
-  <div class="slider-wrapper">
-    <div class="product-icons-wrapper">
-      <div class="icon active"><img src="https://github.com/tolgahanfatihguner/images/blob/main/Cocomega%20Mockup%202.png?raw=true" alt="Cocomega"></div>
-      <div class="icon"><img src="https://github.com/tolgahanfatihguner/images/blob/main/D3K2.png?raw=true" alt="D3K2"></div>
-      <div class="icon"><img src="https://github.com/tolgahanfatihguner/images/blob/main/DIGESTAZ.png?raw=true" alt="Digestaz"></div>
-      <div class="icon"><img src="https://github.com/tolgahanfatihguner/images/blob/main/MAGNESI%E2%95%A0%C3%A7O.png?raw=true" alt="Magnesio"></div>
-      <div class="icon"><img src="https://github.com/tolgahanfatihguner/images/blob/main/REGISTA.png?
+<div class="slider-wrapper">
+  <div class="product-icons-wrapper">
+    <div class="icon active" data-index="0"><img src="https://github.com/tolgahanfatihguner/images/blob/main/Cocomega%20Mockup%202.png?raw=true" alt="Cocomega"></div>
+    <div class="icon" data-index="1"><img src="https://github.com/tolgahanfatihguner/images/blob/main/D3K2.png?raw=true" alt="D3K2"></div>
+    <div class="icon" data-index="2"><img src="https://github.com/tolgahanfatihguner/images/blob/main/DIGESTAZ.png?raw=true" alt="Digestaz"></div>
+    <div class="icon" data-index="3"><img src="https://github.com/tolgahanfatihguner/images/blob/main/MAGNESI%E2%95%A0%C3%A7O.png?raw=true" alt="Magnesio"></div>
+    <div class="icon" data-index="4"><img src="https://github.com/tolgahanfatihguner/images/blob/main/REGISTA.png?raw=true" alt="Regista"></div>
+  </div>
+
+  <div class="product-main">
+    <div class="product-image">
+      <img id="mainImage" src="https://github.com/tolgahanfatihguner/images/blob/main/Cocomega%20Mockup%202.png?raw=true" alt="Ürün">
+    </div>
+    <div class="product-info-card">
+      <div class="question-icon">?</div>
+      <h4>KİMLER KULLANABİLİR</h4>
+      <p id="infoText">Kalp, beyin ve göz sağlığı için Omega-3 desteğine ihtiyaç duyan bireyler</p>
+    </div>
+  </div>
+
+  <div class="product-description">
+    <h2 id="productTitle">COCOMEGA OMEGA-3</h2>
+    <p id="productDesc">Yüksek kaliteli Omega-3 içeriği ile kalp, beyin ve göz sağlığına destek.</p>
+    <div class="buttons">
+      <button class="btn">DETAYLI BİLGİ AL</button>
+      <button class="btn outline">NEREDEN SATIN ALABİLİRİM?</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const products = [
+  {
+    title: "COCOMEGA OMEGA-3",
+    desc: "Yüksek kaliteli Omega-3 içeriği ile kalp, beyin ve göz sağlığına destek.",
+    image: "https://github.com/tolgahanfatihguner/images/blob/main/Cocomega%20Mockup%202.png?raw=true",
+    info: "Kalp, beyin ve göz sağlığı için Omega-3 desteğine ihtiyaç duyan bireyler"
+  },
+  {
+    title: "D3K2 VİTAMİN DESTEĞİ",
+    desc: "Günlük bağışıklık ve kemik sağlığı için vitamin takviyesi.",
+    image: "https://github.com/tolgahanfatihguner/images/blob/main/D3K2.png?raw=true",
+    info: "D vitamini eksikliği yaşayanlar ve kemik sağlığını desteklemek isteyenler"
+  },
+  {
+    title: "DIGESTAZ ENZİM KOMPLEKSİ",
+    desc: "Sindirim gücünüzü artıran özel enzim karışımı.",
+    image: "https://github.com/tolgahanfatihguner/images/blob/main/DIGESTAZ.png?raw=true",
+    info: "Yemek sonrası hazımsızlık yaşayan bireyler"
+  },
+  {
+    title: "MAGNESIO",
+    desc: "Yüksek emilimli magnezyum desteği, kas ve sinir sağlığı için.",
+    image: "https://github.com/tolgahanfatihguner/images/blob/main/MAGNESI%E2%95%A0%C3%A7O.png?raw=true",
+    info: "Yoğun fiziksel aktivite yapanlar ve kas krampları yaşayanlar"
+  },
+  {
+    title: "REGISTA SİNDİRİM DESTEĞİ",
+    desc: "Sindirim sistemini destekleyen bitkisel bazlı formül.",
+    image: "https://github.com/tolgahanfatihguner/images/blob/main/REGISTA.png?raw=true",
+    info: "Bitkisel içerikli sindirim desteği arayan bireyler"
+  }
+];
+
+const icons = document.querySelectorAll('.icon');
+const title = document.getElementById('productTitle');
+const desc = document.getElementById('productDesc');
+const image = document.getElementById('mainImage');
+const info = document.getElementById('infoText');
+
+icons.forEach(icon => {
+  icon.addEventListener('click', () => {
+    document.querySelector('.icon.active').classList.remove('active');
+    icon.classList.add('active');
+    const index = parseInt(icon.getAttribute('data-index'));
+    const product = products[index];
+    title.textContent = product.title;
+    desc.textContent = product.desc;
+    image.src = product.image;
+    info.textContent = product.info;
+  });
+});
+</script>
+</body>
+</html>
