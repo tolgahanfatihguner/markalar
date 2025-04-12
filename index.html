@@ -1,4 +1,32 @@
-...
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INFLESS Ürün Ailesi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Wix Madefor Display', sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .slider-wrapper {
+      max-width: 1100px;
+      margin: auto;
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
     .product-icons-wrapper {
       display: flex;
       justify-content: center;
@@ -48,4 +76,100 @@
     .icon:nth-child(5) {
       border-color: #f44336; /* Kırmızı - Regista */
     }
-...
+
+    .product-main {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .product-image img {
+      width: 280px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .product-info-card {
+      background: #fcefd9;
+      border-radius: 16px;
+      padding: 20px;
+      width: 240px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .product-info-card .question-icon {
+      background: #ffa502;
+      color: white;
+      font-size: 32px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .product-description {
+      margin-top: 30px;
+    }
+
+    .product-description h2 {
+      color: #ff6f00;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background: #ff6f00;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn.outline {
+      background: transparent;
+      color: #ff6f00;
+      border: 2px solid #ff6f00;
+    }
+
+    @media (max-width: 768px) {
+      .product-main {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .product-info-card {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .product-image img {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="slider-wrapper">
+    <div class="product-icons-wrapper">
+      <div class="icon active"><img src="https://github.com/tolgahanfatihguner/images/blob/main/Cocomega%20Mockup%202.png?raw=true" alt="Cocomega"></div>
+      <div class="icon"><img src="https://github.com/tolgahanfatihguner/images/blob/main/D3K2.png?raw=true" alt="D3K2"></div>
+      <div class="icon"><img src="https://github.com/tolgahanfatihguner/images/blob/main/DIGESTAZ.png?raw=true" alt="Digestaz"></div>
+      <div class="icon"><img src="https://github.com/tolgahanfatihguner/images/blob/main/MAGNESI%E2%95%A0%C3%A7O.png?raw=true" alt="Magnesio"></div>
+      <div class="icon"><img src="https://github.com/tolgahanfatihguner/images/blob/main/REGISTA.png?
