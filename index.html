@@ -55,9 +55,18 @@
     .product-main {
       display: flex;
       gap: 30px;
-      align-items: center;
-      justify-content: space-between;
+      align-items: flex-start;
+      justify-content: flex-start;
       flex-wrap: wrap;
+    }
+    .product-image {
+      flex: 0 0 auto;
+    }
+    .product-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .product-image img {
       width: 280px;
@@ -68,9 +77,11 @@
       background: #fcefd9;
       border-radius: 16px;
       padding: 20px;
-      width: 240px;
+      width: 100%;
+      max-width: 400px;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
     }
     .question-icon {
       background: #ffa502;
@@ -86,7 +97,7 @@
       margin-bottom: 10px;
     }
     .product-description {
-      margin-top: 30px;
+      margin-top: 10px;
     }
     .product-description h2 {
       color: #ff6f00;
@@ -139,19 +150,20 @@
     <div class="product-image">
       <img id="mainImage" src="https://github.com/tolgahanfatihguner/images/blob/main/Cocomega%20Mockup%202.png?raw=true" alt="Ürün">
     </div>
-    <div class="product-info-card">
-      <div class="question-icon">?</div>
-      <h4>KİMLER KULLANABİLİR</h4>
-      <p id="infoText">Kalp, beyin ve göz sağlığı için Omega-3 desteğine ihtiyaç duyan bireyler</p>
-    </div>
-  </div>
-
-  <div class="product-description">
-    <h2 id="productTitle">COCOMEGA OMEGA-3</h2>
-    <p id="productDesc">Yüksek kaliteli Omega-3 içeriği ile kalp, beyin ve göz sağlığına destek.</p>
-    <div class="buttons">
-      <button class="btn">DETAYLI BİLGİ AL</button>
-      <button class="btn outline">NEREDEN SATIN ALABİLİRİM?</button>
+    <div class="product-text">
+      <div class="product-info-card">
+        <div class="question-icon">?</div>
+        <h4>KİMLER KULLANABİLİR</h4>
+        <p id="infoText">Kalp, beyin ve göz sağlığı için Omega-3 desteğine ihtiyaç duyan bireyler</p>
+      </div>
+      <div class="product-description">
+        <h2 id="productTitle">COCOMEGA OMEGA-3</h2>
+        <p id="productDesc">Yüksek kaliteli Omega-3 içeriği ile kalp, beyin ve göz sağlığına destek.</p>
+        <div class="buttons">
+          <button class="btn">DETAYLI BİLGİ AL</button>
+          <button class="btn outline">NEREDEN SATIN ALABİLİRİM?</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
