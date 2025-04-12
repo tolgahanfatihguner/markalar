@@ -1,297 +1,177 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gelişmiş Ürün Slider Tasarımı</title>
-    <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Wix Madefor Display', sans-serif;
-            background: #fde9e7;
-            padding: 20px;
-            color: #333;
-        }
-
-        .container {
-            width: 900px;
-            height: 600px;
-            margin: auto;
-            position: relative;
-            background: #fde9e7;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            padding: 30px;
-            overflow: hidden;
-        }
-
-        .title {
-            text-align: center;
-            font-size: 24px;
-            color: #1C2B3A;
-            font-weight: 600;
-            margin-bottom: 44px; /* %20 daha fazla boşluk eklendi */
-        }
-
-        .product-icons-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            margin-top: 20px;
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .arrow-btn {
-            background: #0984e3;
-            border: none;
-            color: #fff;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s;
-        }
-
-        .arrow-btn:hover {
-            background: #74b9ff;
-        }
-
-        .product-icons {
-            display: flex;
-            gap: 40px;
-        }
-
-        .icon-container {
-            position: relative;
-            width: 102px;
-            height: 102px;
-        }
-
-        .product-icon {
-            width: 102px;
-            height: 102px;
-            border-radius: 50%;
-            overflow: hidden;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            position: relative;
-            z-index: 1;
-            border: 3px solid transparent;
-        }
-
-        /* Yeni Çerçeve ve Glow Renkleri */
-        .icon-container:nth-child(1) .product-icon {
-            border-color: #885096;
-        }
-        .icon-container:nth-child(2) .product-icon {
-            border-color: #da4c25;
-        }
-        .icon-container:nth-child(3) .product-icon {
-            border-color: #1e6ba4;
-        }
-        .icon-container:nth-child(4) .product-icon {
-            border-color: #40aea9;
-        }
-        .icon-container:nth-child(5) .product-icon {
-            border-color: #ebaa00;
-        }
-
-        .icon-container:nth-child(1) .icon-glow {
-            background: rgba(136, 80, 150, 0.6);
-        }
-        .icon-container:nth-child(2) .icon-glow {
-            background: rgba(218, 76, 37, 0.6);
-        }
-        .icon-container:nth-child(3) .icon-glow {
-            background: rgba(30, 107, 164, 0.6);
-        }
-        .icon-container:nth-child(4) .icon-glow {
-            background: rgba(64, 174, 169, 0.6);
-        }
-        .icon-container:nth-child(5) .icon-glow {
-            background: rgba(235, 170, 0, 0.6);
-        }
-
-        .icon-glow {
-            position: absolute;
-            width: 60%;
-            height: 25px;
-            border-radius: 50%;
-            bottom: 5px;
-            left: 50%;
-            transform: translateX(-50%);
-            filter: blur(10px);
-            z-index: 0;
-        }
-
-        .product-icon:hover, .active-icon {
-            transform: scale(1.2);
-            border-width: 3px;
-        }
-
-        .product-detail {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .product-detail img {
-            width: 250px;
-            border-radius: 15px;
-            transition: all 0.5s ease;
-        }
-
-        .info {
-            max-width: 400px;
-            text-align: left;
-        }
-
-        .info h2 {
-            margin-bottom: 10px;
-            font-size: 24px;
-            color: #0984e3;
-        }
-
-        .info p {
-            margin-bottom: 20px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            background-color: #0984e3;
-            color: #fff;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #74b9ff;
-        }
-
-        .user-info {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #ffeaa7;
-            padding: 15px;
-            border-radius: 50%;
-            width: 130px;
-            height: 130px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-
-        .user-info:hover {
-            background: #fab1a0;
-            transform: translateY(-50%) scale(1.1);
-        }
-    </style>
-</head>
-<body>
-
-<div class="container" id="productContainer">
-    <div class="title">INFLESS ÜRÜN AİLESİ</div>
-    <div class="product-icons-wrapper">
-        <button class="arrow-btn" id="prevBtn">‹</button>
-        <div class="product-icons">
-            <div class="icon-container">
-                <div class="icon-glow"></div>
-                <img class="product-icon active-icon" src="https://raw.githubusercontent.com/tolgahanfatihguner/images/refs/heads/main/MAGNESI%E2%95%A0%C3%A7O.png" alt="Magnesio">
-            </div>
-            <div class="icon-container">
-                <div class="icon-glow"></div>
-                <img class="product-icon" src="https://raw.githubusercontent.com/tolgahanfatihguner/images/refs/heads/main/REGISTA.png" alt="Regista">
-            </div>
-            <div class="icon-container">
-                <div class="icon-glow"></div>
-                <img class="product-icon" src="https://raw.githubusercontent.com/tolgahanfatihguner/images/refs/heads/main/Cocomega%20Mockup%202.png" alt="Cocomega">
-            </div>
-            <div class="icon-container">
-                <div class="icon-glow"></div>
-                <img class="product-icon" src="https://raw.githubusercontent.com/tolgahanfatihguner/images/refs/heads/main/DIGESTAZ.png" alt="Digestaz">
-            </div>
-            <div class="icon-container">
-                <div class="icon-glow"></div>
-                <img class="product-icon" src="https://raw.githubusercontent.com/tolgahanfatihguner/images/refs/heads/main/D3K2.png" alt="D3K2">
-            </div>
-        </div>
-        <button class="arrow-btn" id="nextBtn">›</button>
-    </div>
-
-    <div class="product-detail">
-        <img id="productImage" src="https://via.placeholder.com/250" alt="Ürün Görseli">
-        <div class="info">
-            <h2 id="productTitle">Magnesio Yenilendi!</h2>
-            <p id="productDesc">Yüksek emilimli magnezyum desteği, kas ve sinir sağlığı için özel olarak geliştirildi.</p>
-            <div class="buttons">
-                <button class="btn">İncele</button>
-                <button class="btn">Video İzle</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="user-info">
-        Kimler<br>Kullanabilir?
-    </div>
-</div>
-
-<script>
-    const products = [
-        {title: 'Magnesio Yenilendi!', desc: 'Yüksek emilimli magnezyum desteği, kas ve sinir sağlığı için özel olarak geliştirildi.', img: 'https://via.placeholder.com/250', bgColor: '#f2e4f4'},
-        {title: 'Regista Sindirim Desteği!', desc: 'Sindirim sistemini destekleyen özel formül.', img: 'https://via.placeholder.com/250', bgColor: '#fbe7e1'},
-        {title: 'Cocomega Omega-3', desc: 'Kalp, beyin ve göz sağlığı için yüksek kaliteli Omega-3.', img: 'https://via.placeholder.com/250', bgColor: '#e3effb'},
-        {title: 'Digestaz Enzim Kompleksi', desc: 'Sindirim gücünüzü artıran özel enzim karışımı.', img: 'https://via.placeholder.com/250', bgColor: '#e1f7f4'},
-        {title: 'D3K2 Vitamin Desteği', desc: 'Günlük bağışıklık ve enerji desteği sağlayan vitamin.', img: 'https://via.placeholder.com/250', bgColor: '#fef4e1'}
-    ];
-
-    const icons = document.querySelectorAll('.product-icon');
-    let currentIndex = 0;
-
-    function updateProduct(index) {
-        document.querySelector('.active-icon').classList.remove('active-icon');
-        icons[index].classList.add('active-icon');
-        document.getElementById('productTitle').textContent = products[index].title;
-        document.getElementById('productDesc').textContent = products[index].desc;
-        document.getElementById('productImage').src = products[index].img;
-        document.getElementById('productContainer').style.backgroundColor = products[index].bgColor;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INFLESS Ürün Ailesi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
     }
 
-    icons.forEach((icon, idx) => {
-        icon.addEventListener('click', () => {
-            currentIndex = idx;
-            updateProduct(currentIndex);
-        });
-    });
+    body {
+      font-family: 'Wix Madefor Display', sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
 
-    document.getElementById('prevBtn').addEventListener('click', () => {
-        currentIndex = (currentIndex > 0) ? currentIndex - 1 : products.length - 1;
-        updateProduct(currentIndex);
-    });
+    .slider-wrapper {
+      max-width: 1100px;
+      margin: auto;
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
 
-    document.getElementById('nextBtn').addEventListener('click', () => {
-        currentIndex = (currentIndex < products.length - 1) ? currentIndex + 1 : 0;
-        updateProduct(currentIndex);
-    });
-</script>
+    .product-icons-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
 
+    .icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #eee;
+      overflow: hidden;
+      border: 3px solid transparent;
+      cursor: pointer;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .icon.active {
+      transform: scale(1.1);
+      border-color: #ff6f00;
+    }
+
+    .product-main {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .product-image img {
+      width: 280px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .product-info-card {
+      background: #fcefd9;
+      border-radius: 16px;
+      padding: 20px;
+      width: 240px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .product-info-card .question-icon {
+      background: #ffa502;
+      color: white;
+      font-size: 32px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .product-description {
+      margin-top: 30px;
+    }
+
+    .product-description h2 {
+      color: #ff6f00;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background: #ff6f00;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn.outline {
+      background: transparent;
+      color: #ff6f00;
+      border: 2px solid #ff6f00;
+    }
+
+    @media (max-width: 768px) {
+      .product-main {
+        flex-direction: column;
+        align-items: center;
+      }
+      .product-info-card {
+        width: 100%;
+        max-width: 300px;
+      }
+      .product-image img {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="slider-wrapper">
+    <div class="product-icons-wrapper">
+      <div class="icon active"><img src="https://via.placeholder.com/80" alt="1"></div>
+      <div class="icon"><img src="https://via.placeholder.com/80" alt="2"></div>
+      <div class="icon"><img src="https://via.placeholder.com/80" alt="3"></div>
+      <div class="icon"><img src="https://via.placeholder.com/80" alt="4"></div>
+      <div class="icon"><img src="https://via.placeholder.com/80" alt="5"></div>
+    </div>
+
+    <div class="product-main">
+      <div class="product-image">
+        <img src="https://via.placeholder.com/280x350" alt="Ürün">
+      </div>
+      <div class="product-info-card">
+        <div class="question-icon">?</div>
+        <h4>KİMLER KULLANABİLİR</h4>
+        <p>Vitamin ve mineral desteğine gereksinim duyan bireyler</p>
+      </div>
+    </div>
+
+    <div class="product-description">
+      <h2>PHARMATON® VITALITY® TABLET</h2>
+      <p>Pharmaton® Vitality®, etkinliği klinik olarak kanıtlanmış Ginseng G115®, 12 vitamin, 6 mineral içeren takviye edici gıdadır...</p>
+      <div class="buttons">
+        <button class="btn">DETAYLI BİLGİ AL</button>
+        <button class="btn outline">NEREDEN SATIN ALABİLİRİM?</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
