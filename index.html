@@ -47,11 +47,11 @@
     .icon.active {
       transform: scale(1.1);
     }
-    .icon:nth-child(1) { border-color: #F07875; }
-    .icon:nth-child(2) { border-color: #6C9BCF; }
-    .icon:nth-child(3) { border-color: #7BCFA1; }
-    .icon:nth-child(4) { border-color: #AD7BCF; }
-    .icon:nth-child(5) { border-color: #CF7B7B; }
+    .icon:nth-child(1) { border-color: #f4a261; }
+    .icon:nth-child(2) { border-color: #3f81c7; }
+    .icon:nth-child(3) { border-color: #4aa96c; }
+    .icon:nth-child(4) { border-color: #9c27b0; }
+    .icon:nth-child(5) { border-color: #f44336; }
 
     .product-main {
       display: grid;
@@ -73,13 +73,13 @@
     }
 
     .product-description h2 {
-      color: #F07875;
+      color: #ff6f00;
       font-size: 22px;
       margin-bottom: 10px;
     }
 
     .product-info-card {
-      background: #FFF3F3;
+      background: #fcefd9;
       border-radius: 16px;
       padding: 20px;
       text-align: center;
@@ -87,7 +87,7 @@
     }
 
     .question-icon {
-      background: #F07875;
+      background: #ffa502;
       color: white;
       font-size: 32px;
       width: 48px;
@@ -109,7 +109,7 @@
 
     .btn {
       padding: 10px 20px;
-      background: #F07875;
+      background: #ff6f00;
       color: white;
       border: none;
       border-radius: 20px;
@@ -119,8 +119,8 @@
 
     .btn.outline {
       background: transparent;
-      color: #F07875;
-      border: 2px solid #F07875;
+      color: #ff6f00;
+      border: 2px solid #ff6f00;
     }
 
     @media (max-width: 900px) {
@@ -136,30 +136,32 @@
   </style>
 </head>
 <body>
-<div class="product-icons-wrapper">
-  <div class="icon active" data-index="0"><img src="https://github.com/tolgahanfatihguner/images/blob/main/Cocomega%20Mockup%202.png?raw=true" alt="Cocomega"></div>
-  <div class="icon" data-index="1"><img src="https://github.com/tolgahanfatihguner/images/blob/main/D3K2.png?raw=true" alt="D3K2"></div>
-  <div class="icon" data-index="2"><img src="https://github.com/tolgahanfatihguner/images/blob/main/DIGESTAZ.png?raw=true" alt="Digestaz"></div>
-  <div class="icon" data-index="3"><img src="https://github.com/tolgahanfatihguner/images/blob/main/MAGNESI%E2%95%A0%C3%A7O.png?raw=true" alt="Magnesio"></div>
-  <div class="icon" data-index="4"><img src="https://github.com/tolgahanfatihguner/images/blob/main/REGISTA.png?raw=true" alt="Regista"></div>
-</div>
+<div class="slider-wrapper">
+  <div class="product-icons-wrapper">
+    <div class="icon active" data-index="0"><img src="https://github.com/tolgahanfatihguner/images/blob/main/Cocomega%20Mockup%202.png?raw=true" alt="Cocomega"></div>
+    <div class="icon" data-index="1"><img src="https://github.com/tolgahanfatihguner/images/blob/main/D3K2.png?raw=true" alt="D3K2"></div>
+    <div class="icon" data-index="2"><img src="https://github.com/tolgahanfatihguner/images/blob/main/DIGESTAZ.png?raw=true" alt="Digestaz"></div>
+    <div class="icon" data-index="3"><img src="https://github.com/tolgahanfatihguner/images/blob/main/MAGNESI%E2%95%A0%C3%A7O.png?raw=true" alt="Magnesio"></div>
+    <div class="icon" data-index="4"><img src="https://github.com/tolgahanfatihguner/images/blob/main/REGISTA.png?raw=true" alt="Regista"></div>
+  </div>
 
-<div class="product-main">
-  <div class="product-image">
-    <img id="mainImage" src="https://github.com/tolgahanfatihguner/images/blob/main/Cocomega%20Mockup%202.png?raw=true" alt="Ürün">
-  </div>
-  <div class="product-description">
-    <h2 id="productTitle">COCOMEGA OMEGA-3</h2>
-    <p id="productDesc">Yüksek kaliteli Omega-3 içeriği ile kalp, beyin ve göz sağlığına destek.</p>
-    <div class="buttons">
-      <button class="btn">DETAYLI BİLGİ AL</button>
-      <button class="btn outline">NEREDEN SATIN ALABİLİRİM?</button>
+  <div class="product-main">
+    <div class="product-image">
+      <img id="mainImage" src="https://github.com/tolgahanfatihguner/images/blob/main/Cocomega%20Mockup%202.png?raw=true" alt="Ürün">
     </div>
-  </div>
-  <div class="product-info-card">
-    <div class="question-icon">?</div>
-    <h4>KİMLER KULLANABİLİR</h4>
-    <p id="infoText">Kalp, beyin ve göz sağlığı için Omega-3 desteğine ihtiyaç duyan bireyler</p>
+    <div class="product-description">
+      <h2 id="productTitle">COCOMEGA OMEGA-3</h2>
+      <p id="productDesc">Yüksek kaliteli Omega-3 içeriği ile kalp, beyin ve göz sağlığına destek.</p>
+      <div class="buttons">
+        <button class="btn">DETAYLI BİLGİ AL</button>
+        <button class="btn outline">NEREDEN SATIN ALABİLİRİM?</button>
+      </div>
+    </div>
+    <div class="product-info-card">
+      <div class="question-icon">?</div>
+      <h4>KİMLER KULLANABİLİR</h4>
+      <p id="infoText">Kalp, beyin ve göz sağlığı için Omega-3 desteğine ihtiyaç duyan bireyler</p>
+    </div>
   </div>
 </div>
 
@@ -216,3 +218,5 @@ icons.forEach(icon => {
   });
 });
 </script>
+</body>
+</html>
