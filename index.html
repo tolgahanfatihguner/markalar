@@ -27,9 +27,19 @@
       justify-content: center;
       gap: 24px;
       margin-bottom: 30px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+    }
+    .product-icons-wrapper::-webkit-scrollbar {
+      height: 6px;
+    }
+    .product-icons-wrapper::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 4px;
     }
     .icon {
+      flex: 0 0 auto;
       width: 100px;
       height: 100px;
       border-radius: 50%;
@@ -37,7 +47,7 @@
       overflow: hidden;
       border: 2px solid transparent;
       cursor: pointer;
-      transition: transform 0.3s, border-color 0.3s;
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
     .icon img {
       width: 100%;
@@ -64,6 +74,7 @@
       width: 100%;
       border-radius: 16px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
     }
 
     .product-description {
@@ -115,12 +126,22 @@
       border-radius: 20px;
       cursor: pointer;
       font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #d96766;
+      transform: translateY(-2px);
     }
 
     .btn.outline {
       background: transparent;
       color: #F07875;
       border: 2px solid #F07875;
+    }
+
+    .btn.outline:hover {
+      background: #fce6e5;
     }
 
     @media (max-width: 900px) {
@@ -153,8 +174,8 @@
       <h2 id="productTitle">Cocomega, Omega3 ve MCT Oil İçeren Yumuşak Kapsül</h2>
       <p id="productDesc">Tek kapsülünde hem Balık yağı hem de %100 MCT yağı içermektedir.</p>
       <div class="buttons">
-        <button class="btn">ÜRÜN VİDEOSUNU İZLE</button>
-        <button class="btn outline">SATIN AL</button>
+        <button class="btn" id="videoBtn">ÜRÜN VİDEOSUNU İZLE</button>
+        <button class="btn outline" id="buyBtn">SATIN AL</button>
       </div>
     </div>
     <div class="product-info-card">
@@ -171,31 +192,41 @@ const products = [
     title: "Cocomega, Omega3 ve MCT Oil İçeren Yumuşak Kapsül",
     desc: "Tek kapsülünde hem Balık yağı hem de %100 MCT yağı içermektedir.",
     image: "https://github.com/tolgahanfatihguner/images/blob/main/Cocomega%20Mockup%202.png?raw=true",
-    info: "Kalp, beyin, görme ve kan basıncı gibi önemli vücut fonksiyonlarının korunmasına katkıda bulunur. (Türk Gıda Kodeksi Beslenme ve Sağlık Beyanları kapsamında)"
+    info: "Kalp, beyin, görme ve kan basıncı gibi önemli vücut fonksiyonlarının korunmasına katkıda bulunur. (Türk Gıda Kodeksi Beslenme ve Sağlık Beyanları kapsamında)",
+    video: "https://www.youtube.com/watch?v=cocomega",
+    buy: "https://www.infles.com/cocomega"
   },
   {
     title: "D3K2 Vitamini Çörek Otu Yağı",
     desc: "Günlük bağışıklık ve kemik sağlığı için vitamin takviyesi.",
     image: "https://github.com/tolgahanfatihguner/images/blob/main/D3K2.png?raw=true",
-    info: "Bağışıklık, kalp, kas, kemik, sinir sistemi ve metabolizma fonksiyonlarını destekler; sindirimi kolaylaştırır ve yorgunlukla mücadeleye katkı sağlar. (Türk Gıda Kodeksi Beslenme ve Sağlık Beyanları kapsamında)"
+    info: "Bağışıklık, kalp, kas, kemik, sinir sistemi ve metabolizma fonksiyonlarını destekler; sindirimi kolaylaştırır ve yorgunlukla mücadeleye katkı sağlar. (Türk Gıda Kodeksi Beslenme ve Sağlık Beyanları kapsamında)",
+    video: "https://www.youtube.com/watch?v=d3k2",
+    buy: "https://www.infles.com/d3k2"
   },
   {
     title: "Digestaz, Sindirim Enzimleri + Bromelain +Betain HCL+ Lipozomal Berberin + Çinko L-Karnosin",
     desc: "Mide ve bağırsaktaki sindirimi destekleyen etkenler bir arada!",
     image: "https://github.com/tolgahanfatihguner/images/blob/main/DIGESTAZ.png?raw=true",
-    info: "Kalp, beyin, sindirim, kas, kemik ve metabolizma fonksiyonlarını destekler; yorgunlukla mücadeleye yardımcı olur. (Türk Gıda Kodeksi Beslenme ve Sağlık Beyanları kapsamında)"
+    info: "Kalp, beyin, sindirim, kas, kemik ve metabolizma fonksiyonlarını destekler; yorgunlukla mücadeleye yardımcı olur. (Türk Gıda Kodeksi Beslenme ve Sağlık Beyanları kapsamında)",
+    video: "https://www.youtube.com/watch?v=digestaz",
+    buy: "https://www.infles.com/digestaz"
   },
   {
     title: "Magnesio, Magnezyum Kompleks Glisinat, Malat, Taurinat, Sitrat",
     desc: "5 farklı magnezyum L-Treonat, Taurinat, Bisglisinat, Sitrat, Malat.",
     image: "https://github.com/tolgahanfatihguner/images/blob/main/MAGNESI%E2%95%A0%C3%A7O.png?raw=true",
-    info: "kalp, beyin, sinir sistemi, kas ve kemik fonksiyonlarının desteklenmesine katkı sağlar. Aynı zamanda kan basıncının korunmasına, görme yetisinin sürdürülmesine ve yorgunluk-bitkinliğin azaltılmasına yardımcı olur. (Türk Gıda Kodeksi Beslenme ve Sağlık Beyanları kapsamında)"
+    info: "kalp, beyin, sinir sistemi, kas ve kemik fonksiyonlarının desteklenmesine katkı sağlar. Aynı zamanda kan basıncının korunmasına, görme yetisinin sürdürülmesine ve yorgunluk-bitkinliğin azaltılmasına yardımcı olur. (Türk Gıda Kodeksi Beslenme ve Sağlık Beyanları kapsamında)",
+    video: "https://www.youtube.com/watch?v=magnesio",
+    buy: "https://www.infles.com/magnesio"
   },
   {
     title: "Regista, Glutamin, Sistein, Glisin, D-Riboz ve Multivitamin içeren Saşe",
     desc: "18 aktif bileşenli güçlü formül.",
     image: "https://github.com/tolgahanfatihguner/images/blob/main/REGISTA.png?raw=true",
-    info: "Bağışıklık, sinir sistemi, kalp, kas ve kemik fonksiyonlarını destekler; metabolizmayı düzenler, sindirimi kolaylaştırır, hücreleri oksidatif stresten korur ve yorgunlukla mücadeleye yardımcı olur.(Türk Gıda Kodeksi Beslenme ve Sağlık Beyanları kapsamında)"
+    info: "Bağışıklık, sinir sistemi, kalp, kas ve kemik fonksiyonlarını destekler; metabolizmayı düzenler, sindirimi kolaylaştırır, hücreleri oksidatif stresten korur ve yorgunlukla mücadeleye yardımcı olur.(Türk Gıda Kodeksi Beslenme ve Sağlık Beyanları kapsamında)",
+    video: "https://www.youtube.com/watch?v=regista",
+    buy: "https://www.infles.com/regista"
   }
 ];
 
@@ -204,6 +235,8 @@ const title = document.getElementById('productTitle');
 const desc = document.getElementById('productDesc');
 const image = document.getElementById('mainImage');
 const info = document.getElementById('infoText');
+const videoBtn = document.getElementById('videoBtn');
+const buyBtn = document.getElementById('buyBtn');
 
 icons.forEach(icon => {
   icon.addEventListener('click', () => {
@@ -215,8 +248,8 @@ icons.forEach(icon => {
     desc.textContent = product.desc;
     image.src = product.image;
     info.textContent = product.info;
+    videoBtn.onclick = () => window.open(product.video, '_blank');
+    buyBtn.onclick = () => window.open(product.buy, '_blank');
   });
 });
 </script>
-</body>
-</html>
