@@ -115,6 +115,7 @@
       border-radius: 20px;
       cursor: pointer;
       font-weight: 600;
+      text-decoration: none;
     }
 
     .btn.outline {
@@ -153,8 +154,8 @@
       <h2 id="productTitle">Cocomega, Omega3 ve MCT Oil İçeren Yumuşak Kapsül</h2>
       <p id="productDesc">Tek kapsülünde hem Balık yağı hem de %100 MCT yağı içermektedir.</p>
       <div class="buttons">
-        <button class="btn">ÜRÜN VİDEOSUNU İZLE</button>
-        <button class="btn outline">SATIN AL</button>
+        <a id="videoBtn" class="btn" href="https://example.com/video/cocomega" target="_blank">ÜRÜN VİDEOSUNU İZLE</a>
+        <a id="buyBtn" class="btn outline" href="https://example.com/buy/cocomega" target="_blank">SATIN AL</a>
       </div>
     </div>
     <div class="product-info-card">
@@ -171,31 +172,41 @@ const products = [
     title: "Cocomega, Omega3 ve MCT Oil İçeren Yumuşak Kapsül",
     desc: "Tek kapsülünde hem Balık yağı hem de %100 MCT yağı içermektedir.",
     image: "https://github.com/tolgahanfatihguner/images/blob/main/Cocomega%20Mockup%202.png?raw=true",
-    info: "Kalp, beyin, görme ve kan basıncı gibi önemli vücut fonksiyonlarının korunmasına katkıda bulunur. (Türk Gıda Kodeksi Beslenme ve Sağlık Beyanları kapsamında)"
+    info: "Kalp, beyin, görme ve kan basıncı gibi önemli vücut fonksiyonlarının korunmasına katkıda bulunur. (Türk Gıda Kodeksi Beslenme ve Sağlık Beyanları kapsamında)",
+    videoLink: "https://example.com/video/cocomega",
+    buyLink: "https://example.com/buy/cocomega"
   },
   {
     title: "D3K2 Vitamini Çörek Otu Yağı",
     desc: "Günlük bağışıklık ve kemik sağlığı için vitamin takviyesi.",
     image: "https://github.com/tolgahanfatihguner/images/blob/main/D3K2.png?raw=true",
-    info: "Bağışıklık, kalp, kas, kemik, sinir sistemi ve metabolizma fonksiyonlarını destekler; sindirimi kolaylaştırır ve yorgunlukla mücadeleye katkı sağlar. (Türk Gıda Kodeksi Beslenme ve Sağlık Beyanları kapsamında)"
+    info: "Bağışıklık, kalp, kas, kemik, sinir sistemi ve metabolizma fonksiyonlarını destekler...",
+    videoLink: "https://example.com/video/d3k2",
+    buyLink: "https://example.com/buy/d3k2"
   },
   {
     title: "Digestaz, Sindirim Enzimleri + Bromelain +Betain HCL+ Lipozomal Berberin + Çinko L-Karnosin",
     desc: "Mide ve bağırsaktaki sindirimi destekleyen etkenler bir arada!",
     image: "https://github.com/tolgahanfatihguner/images/blob/main/DIGESTAZ.png?raw=true",
-    info: "Kalp, beyin, sindirim, kas, kemik ve metabolizma fonksiyonlarını destekler; yorgunlukla mücadeleye yardımcı olur. (Türk Gıda Kodeksi Beslenme ve Sağlık Beyanları kapsamında)"
+    info: "Kalp, beyin, sindirim, kas, kemik ve metabolizma fonksiyonlarını destekler...",
+    videoLink: "https://example.com/video/digestaz",
+    buyLink: "https://example.com/buy/digestaz"
   },
   {
     title: "Magnesio, Magnezyum Kompleks Glisinat, Malat, Taurinat, Sitrat",
     desc: "5 farklı magnezyum L-Treonat, Taurinat, Bisglisinat, Sitrat, Malat.",
     image: "https://github.com/tolgahanfatihguner/images/blob/main/MAGNESI%E2%95%A0%C3%A7O.png?raw=true",
-    info: "kalp, beyin, sinir sistemi, kas ve kemik fonksiyonlarının desteklenmesine katkı sağlar. Aynı zamanda kan basıncının korunmasına, görme yetisinin sürdürülmesine ve yorgunluk-bitkinliğin azaltılmasına yardımcı olur. (Türk Gıda Kodeksi Beslenme ve Sağlık Beyanları kapsamında)"
+    info: "Kalp, sinir sistemi, kas, kemik fonksiyonlarının desteklenmesine katkı sağlar...",
+    videoLink: "https://example.com/video/magnesio",
+    buyLink: "https://example.com/buy/magnesio"
   },
   {
     title: "Regista, Glutamin, Sistein, Glisin, D-Riboz ve Multivitamin içeren Saşe",
     desc: "18 aktif bileşenli güçlü formül.",
     image: "https://github.com/tolgahanfatihguner/images/blob/main/REGISTA.png?raw=true",
-    info: "Bağışıklık, sinir sistemi, kalp, kas ve kemik fonksiyonlarını destekler; metabolizmayı düzenler, sindirimi kolaylaştırır, hücreleri oksidatif stresten korur ve yorgunlukla mücadeleye yardımcı olur.(Türk Gıda Kodeksi Beslenme ve Sağlık Beyanları kapsamında)"
+    info: "Bağışıklık, sinir sistemi, kalp, kas ve kemik fonksiyonlarını destekler...",
+    videoLink: "https://example.com/video/regista",
+    buyLink: "https://example.com/buy/regista"
   }
 ];
 
@@ -204,6 +215,8 @@ const title = document.getElementById('productTitle');
 const desc = document.getElementById('productDesc');
 const image = document.getElementById('mainImage');
 const info = document.getElementById('infoText');
+const videoBtn = document.getElementById('videoBtn');
+const buyBtn = document.getElementById('buyBtn');
 
 icons.forEach(icon => {
   icon.addEventListener('click', () => {
@@ -215,6 +228,8 @@ icons.forEach(icon => {
     desc.textContent = product.desc;
     image.src = product.image;
     info.textContent = product.info;
+    videoBtn.href = product.videoLink;
+    buyBtn.href = product.buyLink;
   });
 });
 </script>
