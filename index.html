@@ -22,10 +22,14 @@
       padding: 30px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
-    $1flex-wrap: wrap;
-}
+    .product-icons-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
     .icon {
-      flex: 0 0 auto;
       width: 100px;
       height: 100px;
       border-radius: 50%;
@@ -33,7 +37,7 @@
       overflow: hidden;
       border: 2px solid transparent;
       cursor: pointer;
-      transition: transform 0.3s ease, border-color 0.3s ease;
+      transition: transform 0.3s, border-color 0.3s;
     }
     .icon img {
       width: 100%;
@@ -60,7 +64,6 @@
       width: 100%;
       border-radius: 16px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
     }
 
     .product-description {
@@ -112,22 +115,12 @@
       border-radius: 20px;
       cursor: pointer;
       font-weight: 600;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    .btn:hover {
-      background: #d96766;
-      transform: translateY(-2px);
     }
 
     .btn.outline {
       background: transparent;
       color: #F07875;
       border: 2px solid #F07875;
-    }
-
-    .btn.outline:hover {
-      background: #fce6e5;
     }
 
     @media (max-width: 900px) {
@@ -160,8 +153,8 @@
       <h2 id="productTitle">Cocomega, Omega3 ve MCT Oil İçeren Yumuşak Kapsül</h2>
       <p id="productDesc">Tek kapsülünde hem Balık yağı hem de %100 MCT yağı içermektedir.</p>
       <div class="buttons">
-        <button class="btn" id="videoBtn">ÜRÜN VİDEOSUNU İZLE</button>
-        <button class="btn outline" id="buyBtn">SATIN AL</button>
+        <button class="btn">ÜRÜN VİDEOSUNU İZLE</button>
+        <button class="btn outline">SATIN AL</button>
       </div>
     </div>
     <div class="product-info-card">
@@ -182,6 +175,15 @@ const products = [
     video: "https://www.youtube.com/watch?v=cocomega",
     buy: "https://www.infles.com/cocomega"
   },
+  // Linkler eklendi
+  //
+  {
+    title: "Cocomega, Omega3 ve MCT Oil İçeren Yumuşak Kapsül",
+    desc: "Tek kapsülünde hem Balık yağı hem de %100 MCT yağı içermektedir.",
+    image: "https://github.com/tolgahanfatihguner/images/blob/main/Cocomega%20Mockup%202.png?raw=true",
+    info: $1,
+    video: "#",
+    buy: "#"$2,
   {
     title: "D3K2 Vitamini Çörek Otu Yağı",
     desc: "Günlük bağışıklık ve kemik sağlığı için vitamin takviyesi.",
@@ -221,8 +223,6 @@ const title = document.getElementById('productTitle');
 const desc = document.getElementById('productDesc');
 const image = document.getElementById('mainImage');
 const info = document.getElementById('infoText');
-const videoBtn = document.getElementById('videoBtn');
-const buyBtn = document.getElementById('buyBtn');
 
 icons.forEach(icon => {
   icon.addEventListener('click', () => {
@@ -234,8 +234,21 @@ icons.forEach(icon => {
     desc.textContent = product.desc;
     image.src = product.image;
     info.textContent = product.info;
-    videoBtn.onclick = () => window.open(product.video, '_blank');
-    buyBtn.onclick = () => window.open(product.buy, '_blank');
   });
 });
+const videoBtn = document.querySelector('.btn');
+const buyBtn = document.querySelector('.btn.outline');
+
+videoBtn.addEventListener('click', () => {
+  const index = document.querySelector('.icon.active').getAttribute('data-index');
+  window.open(products[index].video, '_blank');
+});
+
+buyBtn.addEventListener('click', () => {
+  const index = document.querySelector('.icon.active').getAttribute('data-index');
+  window.open(products[index].buy, '_blank');
+});
+
 </script>
+</body>
+</html>
