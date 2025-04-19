@@ -134,6 +134,47 @@
         width: 100%;
       }
     }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 0;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 720px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .modal-content iframe {
+      border-radius: 10px;
+    }
+
+    .close {
+      color: #aaa;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .close:hover {
+      color: black;
+    }
   </style>
 </head>
 <body>
@@ -154,7 +195,7 @@
       <h2 id="productTitle">Cocomega, Omega3 ve MCT Oil İçeren Yumuşak Kapsül</h2>
       <p id="productDesc">Tek kapsülünde hem Balık yağı hem de %100 MCT yağı içermektedir.</p>
       <div class="buttons">
-        <a id="videoBtn" class="btn" href="https://example.com/video/cocomega" target="_blank">ÜRÜN VİDEOSUNU İZLE</a>
+        <a id="videoBtn" class="btn" href="#" onclick="openModal()">ÜRÜN VİDEOSUNU İZLE</a>
         <a id="buyBtn" class="btn outline" href="https://example.com/buy/cocomega" target="_blank">SATIN AL</a>
       </div>
     </div>
@@ -166,6 +207,13 @@
   </div>
 </div>
 
+<div id="videoModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <iframe id="videoFrame" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
 <script>
 const products = [
   {
@@ -173,7 +221,7 @@ const products = [
     desc: "Tek kapsülünde hem Balık yağı hem de %100 MCT yağı içermektedir.",
     image: "https://github.com/tolgahanfatihguner/images/blob/main/Cocomega%20Mockup%202.png?raw=true",
     info: "Kalp, beyin, görme ve kan basıncı gibi önemli vücut fonksiyonlarının korunmasına katkıda bulunur. (Türk Gıda Kodeksi Beslenme ve Sağlık Beyanları kapsamında)",
-    videoLink: "https://example.com/video/cocomega",
+    videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     buyLink: "https://example.com/buy/cocomega"
   },
   {
@@ -181,31 +229,31 @@ const products = [
     desc: "Günlük bağışıklık ve kemik sağlığı için vitamin takviyesi.",
     image: "https://github.com/tolgahanfatihguner/images/blob/main/D3K2.png?raw=true",
     info: "Bağışıklık, kalp, kas, kemik, sinir sistemi ve metabolizma fonksiyonlarını destekler...",
-    videoLink: "https://example.com/video/d3k2",
+    videoLink: "https://www.youtube.com/embed/3tmd-ClpJxA",
     buyLink: "https://example.com/buy/d3k2"
   },
   {
-    title: "Digestaz, Sindirim Enzimleri + Bromelain +Betain HCL+ Lipozomal Berberin + Çinko L-Karnosin",
+    title: "Digestaz, Sindirim Enzimleri + ...",
     desc: "Mide ve bağırsaktaki sindirimi destekleyen etkenler bir arada!",
     image: "https://github.com/tolgahanfatihguner/images/blob/main/DIGESTAZ.png?raw=true",
     info: "Kalp, beyin, sindirim, kas, kemik ve metabolizma fonksiyonlarını destekler...",
-    videoLink: "https://example.com/video/digestaz",
+    videoLink: "https://www.youtube.com/embed/9bZkp7q19f0",
     buyLink: "https://example.com/buy/digestaz"
   },
   {
-    title: "Magnesio, Magnezyum Kompleks Glisinat, Malat, Taurinat, Sitrat",
+    title: "Magnesio, Magnezyum Kompleks ...",
     desc: "5 farklı magnezyum L-Treonat, Taurinat, Bisglisinat, Sitrat, Malat.",
     image: "https://github.com/tolgahanfatihguner/images/blob/main/MAGNESI%E2%95%A0%C3%A7O.png?raw=true",
     info: "Kalp, sinir sistemi, kas, kemik fonksiyonlarının desteklenmesine katkı sağlar...",
-    videoLink: "https://example.com/video/magnesio",
+    videoLink: "https://www.youtube.com/embed/oHg5SJYRHA0",
     buyLink: "https://example.com/buy/magnesio"
   },
   {
-    title: "Regista, Glutamin, Sistein, Glisin, D-Riboz ve Multivitamin içeren Saşe",
+    title: "Regista, Glutamin, Sistein ...",
     desc: "18 aktif bileşenli güçlü formül.",
     image: "https://github.com/tolgahanfatihguner/images/blob/main/REGISTA.png?raw=true",
     info: "Bağışıklık, sinir sistemi, kalp, kas ve kemik fonksiyonlarını destekler...",
-    videoLink: "https://example.com/video/regista",
+    videoLink: "https://www.youtube.com/embed/L_jWHffIx5E",
     buyLink: "https://example.com/buy/regista"
   }
 ];
@@ -215,8 +263,25 @@ const title = document.getElementById('productTitle');
 const desc = document.getElementById('productDesc');
 const image = document.getElementById('mainImage');
 const info = document.getElementById('infoText');
-const videoBtn = document.getElementById('videoBtn');
 const buyBtn = document.getElementById('buyBtn');
+let currentVideoLink = products[0].videoLink;
+
+function openModal() {
+  document.getElementById('videoModal').style.display = "block";
+  document.getElementById('videoFrame').src = currentVideoLink;
+}
+
+function closeModal() {
+  document.getElementById('videoModal').style.display = "none";
+  document.getElementById('videoFrame').src = "";
+}
+
+window.onclick = function(event) {
+  const modal = document.getElementById('videoModal');
+  if (event.target == modal) {
+    closeModal();
+  }
+}
 
 icons.forEach(icon => {
   icon.addEventListener('click', () => {
@@ -228,8 +293,8 @@ icons.forEach(icon => {
     desc.textContent = product.desc;
     image.src = product.image;
     info.textContent = product.info;
-    videoBtn.href = product.videoLink;
     buyBtn.href = product.buyLink;
+    currentVideoLink = product.videoLink;
   });
 });
 </script>
